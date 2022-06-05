@@ -14,48 +14,48 @@ export const ItemCount = ({initial, stock}) => {
   }, [item]); 
 
   
-  function add() {
+  const add = () => {
     setMax(max + 1);
   }
 
-  function less() {
+  const less = () => {
     if (max > 0){
       setMax(max - 1)
     }    
   }
 
-  function resetMax() {
+  const resetMax = () => {
     setMax(max * 0);
   }
 
-  function up() {
-    setCounter(counter + 1);
+  const up = () => {
+    if (counter + item < max) {
+    setCounter(counter + 1);}
   }
 
-  function subtract() {
+  const subtract = () => {
     if (counter > 1){
       setCounter(counter - 1)
     }    
   }
 
-  function reset() {
+  const reset = () => {
     setCounter(counter * 0 + 1 );
   }
   
-  function empty() {
+  const empty = () => {
     setItem(item * 0 );
   }
 
-  function onAdd() {
+
+  const onAdd = () => {
     if (max > 0 && (item + counter) <= max){
       setItem(item + counter)
       setCounter(counter * 0 + 1)
-    } else {
-      alert(`The current stock is: ${max} products`)
-    }
+    } 
   }
 
-  
+
   return (
     <>
       <div>
